@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: macwebapp-deployment
+  labels:
+    app: macwebapp
+spec:
+  replicas: 3
+  template:
+    metadata:
+      name: macwebapp
+      labels:
+        app: macwebapp
+    spec:
+      containers:
+      - name: macwebapp
+        image: yuksektek.azurecr.io/oyuksektepeli/netcoremonolithmvcacwebapp:latest
+        imagePullPolicy: Always
+      restartPolicy: Always
+  selector:
+    matchLabels:
+      app: macwebapp
+
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: monolithapp-service
+spec:
+  selector:
+    app: macwebapp
+  ports:
+    - port: 80
+  type: LoadBalancer
+  
+  
