@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: macwebapp
-        image: yuksektek.azurecr.io/oyuksektepeli/netcoremonolithmvcacwebapp:latest
+        image: yuksektek.azurecr.io/oyuksektepeli/netcoremonolithmvc:latest
         imagePullPolicy: Always
       restartPolicy: Always
   selector:
