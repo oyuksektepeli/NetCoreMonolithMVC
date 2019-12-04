@@ -5,7 +5,7 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/core/sdk:3.0-buster AS build
 WORKDIR /src
-COPY ["**/MonolithMVC/MonolithMVC.csproj", "MonolithMVC/"]
+COPY ["../MonolithMVC/MonolithMVC.csproj", "MonolithMVC/"]
 RUN dotnet restore "MonolithMVC/MonolithMVC.csproj"
 COPY . .
 WORKDIR "/src/MonolithMVC"
